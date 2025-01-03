@@ -34,7 +34,9 @@ const Header = () => {
           <div className="feedback">Feedback</div>
         </nav>
 
-        <p className="login">Login</p>
+        <p className="login" style={{ marginBottom: '0' }}>
+  Login
+  </p>
         <div className="sign-up">Sign up</div>
       </div>
     </header>

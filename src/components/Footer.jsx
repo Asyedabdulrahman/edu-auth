@@ -1,16 +1,60 @@
 import React from 'react';
 import "../styles/Footer.css";
+import fire from "../assets/fire.png";
+import call from "../assets/call.png";
+import mockup from "../assets/mockup.png";
+import email from "../assets/email.png";
 
 const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-content">
         {/* Left Section: Contact Info */}
-        <div className="footer-section contact-info">
-          <h4>EduCraft</h4>
-          <p>Email: <a href="mailto:Help@EduCraft.Com">Help@EduCraft.Com</a></p>
-          <p>Phone: <a href="tel:+919876543210">+91 9876543210</a></p>
-        </div>
+
+  <div className="footer-section contact-info">
+  <h4>
+    <img 
+      src={fire}
+      alt="EduCraft Logo" 
+      style={{ width: '20px', marginRight: '8px' }} 
+    />
+    EduCraft
+  </h4>
+  {/* <p>
+    <img 
+      src={email}
+      alt="Email Icon" 
+      style={{ width: '16px', marginRight: '8px' }} 
+    />
+    Email: <a href="mailto:Help@EduCraft.Com">Help@EduCraft.Com  </a>
+  </p>
+  <p>
+    <img 
+      src={call}
+      alt="Phone Icon" 
+      style={{ width: '16px', marginRight: '8px' }} 
+    />
+    Phone: <a href="tel:+919876543210">+91 9876543210</a>
+  </p> */}
+
+  <p>
+  <img 
+    src={email} 
+    alt="Email Icon" 
+    style={{ width: '16px', marginRight: '8px' }} 
+  />
+  Email: <a href="mailto:Help@EduCraft.Com" className="no-decoration">Help@EduCraft.Com</a>
+</p>
+<p>
+  <img 
+    src={call} 
+    alt="Phone Icon" 
+    style={{ width: '16px', marginRight: '8px' }} 
+  />
+  Phone: <a href="tel:+919876543210" className="no-decoration">+91 9876543210</a>
+</p>
+</div>
+
 
         {/* Middle Section: Links */}
         <div className="footer-section quick-links">
@@ -34,17 +78,17 @@ const Footer = () => {
         {/* Right Section: Image */}
         <div className="footer-section image-preview">
           <img
-            src="/path/to/your/image.jpg"
+            src={mockup}
             alt="Website Preview"
-            className="img-fluid"
+            className="img-fluid"  style={{ width: '80%' }} 
           />
         </div>
       </div>
 
       {/* Footer Bottom */}
-      <div className="footer-bottom">
-        <p>&copy; 2022 EduCraft. All Rights Reserved.</p>
-      </div>
+      <div className="footer-bottom" style={{ textAlign: 'center', paddingTop: '20px' }}>
+  <p>&copy; 2022 EduCraft. All Rights Reserved.</p>
+</div>
     </footer>
   );
 };

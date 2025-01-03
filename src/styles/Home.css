@@ -588,7 +588,7 @@
   justify-content: space-between; /* Evenly spaces the image and content */
   gap: 1.5rem;
   padding: 1.5rem;
-  max-width: 700px;
+  /* max-width: 700px; */
   width: 100%;
   border-radius: 20px; /* Add border-radius to the benefit box */
 }
@@ -598,7 +598,7 @@
   height: 150px;
   object-fit: cover;
   border-radius: 8px;
-  margin-top: 30px;
+  /* margin-top: 30px; */
 }
 
 .benefit-content h3 {
@@ -628,4 +628,34 @@
     width: 120px;
     height: 120px;
   }
+}
+
+.shape-features {
+  position: absolute;
+    top: 130%;
+    left: 769px;
+    width: 112px;
+    z-index: 1;
+    display: block;
+    z-index: 1001;
+}
+
+.shape-benefits {
+  position: absolute;
+  top: 130%;
+  left: 769px;
+  width: 112px;
+  z-index: 1;
+  display: block;
+  z-index: 1001;
+}
+
+
+.target {
+  width: 100px; /* Adjust as needed */
+  height: auto;
+}
+
+.rounded {
+  border-radius: 20px !important;
 }

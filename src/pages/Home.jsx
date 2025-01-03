@@ -10,6 +10,8 @@ import mac from "../assets/mac.png";
 import board from "../assets/board.png";
 import clock from "../assets/clock.png";
 import shape from "../assets/Shape.png";
+import shapefea from "../assets/shapefea.png";
+import target from "../assets/target.png";
 
 import red from "../assets/red.png";
 import blue from "../assets/blue.png";
@@ -134,7 +136,7 @@ const Home = () => {
       description:
         "Utilize community feedback to refine and enhance lesson plans over time.",
       image: benefit4,
-      color: "#3282B8",
+      color: "#FF714A",
     },
   ];
 
@@ -183,6 +185,7 @@ const Home = () => {
       <section id="features">
         <div className="features-container">
           <h1>Some Excellent Features For You</h1>
+          <img class="shape-features" src={shapefea}></img>
           <p className="power-feature">
             Powerful features designed to enhance collaboration, streamline
             planning, and simplify <br></br>resource sharing. Elevate your
@@ -214,7 +217,7 @@ const Home = () => {
                 src={builder}
                 alt="Mobile Preview"
                 className="img-fluid"
-                style={{ width: "70%", maxWidth: "400px" }}
+             
               />
             </div>
 
@@ -261,35 +264,37 @@ const Home = () => {
           </div>
         </div>
       </section>
+      <div className="container-fluid" style={{ display: "grid", justifyContent: "end", alignItems: "center" }}>
+  <img className="target" src={target} alt="Target" />
+</div>
 
       <section id="benefits" className="py-5">
+
   {/* Benefits Header */}
   <div className="benefits-header text-center mb-5">
     <h1 className="benefits-title">Benefits</h1>
-    <p className="benefits-description">
-      Save time and effort with AI-powered assistance, create personalized
-      learning <br /> materials, and focus more on teaching while we handle the
-      planning.
-    </p>
+    <img class="shape-benefits" src="/src/assets/shapefea.png"></img>
+    <p className="benefits-description" style={{ color: "#40201E" }}>
+  Save time and effort with AI-powered assistance, create personalized learning
+  materials, and focus more on teaching while we handle the planning.
+</p>
   </div>
 
   {/* Benefits Content */}
   <div className="benefits-list container">
     {benefits.map((benefit, index) => (
       <div
-        key={benefit.id}
+        key={benefit.id || index}
         className="mb-4 rounded"
-        style={{ backgroundColor: benefit.color }}
+        style={{ backgroundColor: benefit.color || "#f5f5f5" }} // Default background color
       >
         {/* Content Wrapped in a Single Box */}
         <div
-          className={`benefit-box d-flex align-items-center  p-4 rounded ${
-            index % 2 === 0 ? "flex-row" : "flex-row-reverse"
-          }`}
+          className={`benefit-box d-flex align-items-center  p-4 rounded ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"}`}
         >
           {/* Image */}
           <img
-            src={benefit.image}
+            src={benefit.image || "default-image.jpg"} // Provide a fallback image if none exists
             alt={benefit.title}
             className="benefit-image img-fluid me-3"
             style={{
@@ -309,6 +314,7 @@ const Home = () => {
     ))}
   </div>
 </section>
+
 
     </>
   );

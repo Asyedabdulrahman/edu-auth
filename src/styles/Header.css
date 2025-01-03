@@ -13,6 +13,7 @@
     color: #fff;
     background-color: #FFF8F2;
     font-family: "Poppins", sans-serif;
+    z-index: 999999;
 }
 
 /* Logo Styling */
