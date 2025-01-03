@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "../styles/Header.css";
 import logo from "../assets/Logo.png";
+import { useClerk, useUser, SignedOut } from "@clerk/clerk-react";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { openSignIn, openSignUp } = useClerk();
+  const { isSignedIn } = useUser();
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -34,10 +37,26 @@ const Header = () => {
           <div className="feedback">Feedback</div>
         </nav>
 
-        <p className="login" style={{ marginBottom: '0' }}>
-  Login
-  </p>
-        <div className="sign-up">Sign up</div>
+        {isSignedIn ? (
+          <button className="login">
+            <SignedOut>
+              <div>This content is visible only to signed out users.</div>
+            </SignedOut>
+          </button>
+        ) : (
+          <>
+            <p
+              className="login"
+              onClick={openSignIn}
+              style={{ marginBottom: "0" }}
+            >
+              Login
+            </p>
+            <div className="sign-up" onClick={openSignUp}>
+              Sign up
+            </div>
+          </>
+        )}
       </div>
     </header>
   );
