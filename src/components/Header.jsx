@@ -53,7 +53,7 @@ const Header = () => {
               Login
             </p>
             <div className="sign-up" onClick={openSignUp}>
-              Sign up
+              Sign Up
             </div>
           </>
         )}
