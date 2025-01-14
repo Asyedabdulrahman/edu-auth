@@ -1,4 +1,3 @@
-import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/Home.css";
 import vector from "../assets/Vector.png";
@@ -28,6 +27,7 @@ import benefit1 from "../assets/benefit1.png";
 import benefit2 from "../assets/benefit2.png";
 import benefit3 from "../assets/benefit3.png";
 import benefit4 from "../assets/benefit4.png";
+import Header from "../components/Header";
 
 const Home = () => {
   const features = [
@@ -142,6 +142,7 @@ const Home = () => {
 
   return (
     <>
+      <Header className="fixed" />
       <section id="home">
         <img className="vector4" src={vector4} />
 
@@ -213,12 +214,7 @@ const Home = () => {
           <div className="row align-items-center">
             {/* Left Column */}
             <div className="col-lg-6 col-md-12 text-center mb-4 mb-lg-0">
-              <img
-                src={builder}
-                alt="Mobile Preview"
-                className="img-fluid"
-             
-              />
+              <img src={builder} alt="Mobile Preview" className="img-fluid" />
             </div>
 
             {/* Right Column */}
@@ -264,58 +260,63 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <div className="container-fluid" style={{ display: "grid", justifyContent: "end", alignItems: "center" }}>
-  <img className="target" src={target} alt="Target" />
-</div>
+      <div
+        className="container-fluid"
+        style={{ display: "grid", justifyContent: "end", alignItems: "center" }}
+      >
+        <img className="target" src={target} alt="Target" />
+      </div>
 
       <section id="benefits" className="py-5">
-
-  {/* Benefits Header */}
-  <div className="benefits-header text-center mb-5">
-    <h1 className="benefits-title">Benefits</h1>
-    <img class="shape-benefits" src="/src/assets/shapefea.png"></img>
-    <p className="benefits-description" style={{ color: "#40201E" }}>
-  Save time and effort with AI-powered assistance, create personalized learning
-  materials, and focus more on teaching while we handle the planning.
-</p>
-  </div>
-
-  {/* Benefits Content */}
-  <div className="benefits-list container">
-    {benefits.map((benefit, index) => (
-      <div
-        key={benefit.id || index}
-        className="mb-4 rounded"
-        style={{ backgroundColor: benefit.color || "#f5f5f5" }} // Default background color
-      >
-        {/* Content Wrapped in a Single Box */}
-        <div
-          className={`benefit-box d-flex align-items-center  p-4 rounded ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"}`}
-        >
-          {/* Image */}
-          <img
-            src={benefit.image || "default-image.jpg"} // Provide a fallback image if none exists
-            alt={benefit.title}
-            className="benefit-image img-fluid me-3"
-            style={{
-              width: "150px",
-              height: "150px",
-              objectFit: "cover",
-              borderRadius: "8px",
-            }}
-          />
-          {/* Content */}
-          <div className="benefit-content">
-            <h3 className="benefit-title mb-2">{benefit.title}</h3>
-            <p className="benefit-description mb-0">{benefit.description}</p>
-          </div>
+        {/* Benefits Header */}
+        <div className="benefits-header text-center mb-5">
+          <h1 className="benefits-title">Benefits</h1>
+          <img class="shape-benefits" src="/src/assets/shapefea.png"></img>
+          <p className="benefits-description" style={{ color: "#40201E" }}>
+            Save time and effort with AI-powered assistance, create personalized
+            learning materials, and focus more on teaching while we handle the
+            planning.
+          </p>
         </div>
-      </div>
-    ))}
-  </div>
-</section>
 
-
+        {/* Benefits Content */}
+        <div className="benefits-list container">
+          {benefits.map((benefit, index) => (
+            <div
+              key={benefit.id || index}
+              className="mb-4 rounded"
+              style={{ backgroundColor: benefit.color || "#f5f5f5" }} // Default background color
+            >
+              {/* Content Wrapped in a Single Box */}
+              <div
+                className={`benefit-box d-flex align-items-center  p-4 rounded ${
+                  index % 2 === 0 ? "flex-row" : "flex-row-reverse"
+                }`}
+              >
+                {/* Image */}
+                <img
+                  src={benefit.image || "default-image.jpg"} // Provide a fallback image if none exists
+                  alt={benefit.title}
+                  className="benefit-image img-fluid me-3"
+                  style={{
+                    width: "150px",
+                    height: "150px",
+                    objectFit: "cover",
+                    borderRadius: "8px",
+                  }}
+                />
+                {/* Content */}
+                <div className="benefit-content">
+                  <h3 className="benefit-title mb-2">{benefit.title}</h3>
+                  <p className="benefit-description mb-0">
+                    {benefit.description}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
     </>
   );
 };
