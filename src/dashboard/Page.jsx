@@ -7,19 +7,19 @@ import CollaborativeUpdates from "../components/CollaborativeUpdates";
 import Activity from "../components/Activity";
 
 const Page = () => {
-  useEffect(() => {
-    // Get the current URL
-    const url = new URL(window.location.href);
+  // useEffect(() => {
+  //   // Get the current URL
+  //   const url = new URL(window.location.href);
 
-    // Check if the __clerk_handshake parameter exists
-    if (url.searchParams.has("__clerk_handshake")) {
-      // Remove the __clerk_handshake parameter
-      url.searchParams.delete("__clerk_handshake");
+  //   // Check if the __clerk_handshake parameter exists
+  //   if (url.searchParams.has("__clerk_handshake")) {
+  //     // Remove the __clerk_handshake parameter
+  //     url.searchParams.delete("__clerk_handshake");
 
-      // Update the URL in the browser without refreshing the page
-      window.history.replaceState(null, "", url.toString());
-    }
-  }, []);
+  //     // Update the URL in the browser without refreshing the page
+  //     window.history.replaceState(null, "", url.toString());
+  //   }
+  // }, []);
   return (
     <Layout>
       <h2 className="text-xl font-bold pb-3 flex flex-row justify-start">
