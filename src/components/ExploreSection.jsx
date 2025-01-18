@@ -1,23 +1,33 @@
-import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const ExploreSection = () => {
+  const navigate = useNavigate();
+
   const exploreItems = [
     {
       title: "Check Your\nLesson Plans", // Two lines
       colorFrom: "from-red-400",
       colorTo: "to-red-300",
+      navigateto: "/lessonPlan",
     },
     {
       title: "View Your\nTimetable", // Two lines
       colorFrom: "from-red-400",
       colorTo: "to-red-300",
+      navigateto: "/lessonPlan",
     },
     {
       title: "Explore the\nCurriculum", // Two lines
       colorFrom: "from-red-400",
       colorTo: "to-red-300",
+      navigateto: "/lessonPlan",
     },
   ];
+
+  // const checknavigate = () => {
+  //   console.log("navigate btn working fine");
+  //   navigate("/lessonPlan");
+  // };
 
   return (
     <div className="p-4 mt-6 bg-white rounded-lg shadow">
@@ -33,6 +43,10 @@ const ExploreSection = () => {
           <div
             key={index}
             className={`flex items-center justify-between p-4 rounded-lg bg-gradient-to-r ${item.colorFrom} ${item.colorTo} text-white shadow-md cursor-pointer transition hover:scale-105`}
+            onClick={() => {
+              console.log("onclick");
+              navigate("/lessonPlan");
+            }}
           >
             <h3 className="text-sm font-semibold whitespace-pre-line">
               {item.title}

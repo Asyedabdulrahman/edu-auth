@@ -1,22 +1,38 @@
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import {
+  Route,
+  BrowserRouter as Router,
+  Routes,
+  useLocation,
+} from "react-router-dom";
 import Page from "./dashboard/Page";
-// import { SignIn, SignUp } from "@clerk/clerk-react";
 import SignInPage from "./auth/SignInPage";
 import SignUpPage from "./auth/SignUpPage";
+import LessonPlan from "./components/LessonPlan";
 
-const App = () => {
+const AppComponent = () => {
+  const location = useLocation();
+
   return (
-    <Router>
-      {/* <Header /> */}
+    <>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<SignInPage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/dashboard" element={<Page />} />
+        <Route path="/lessonPlan" element={<LessonPlan />} />
       </Routes>
-      <Footer />
+
+      {location.pathname !== "/lessonPlan" && <Footer />}
+    </>
+  );
+};
+
+const App = () => {
+  return (
+    <Router>
+      <AppComponent />
     </Router>
   );
 };
