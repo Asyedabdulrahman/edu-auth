@@ -13,7 +13,7 @@ import shapefea from "../assets/shapefea.png";
 import target from "../assets/target.png";
 
 import red from "../assets/red.png";
-import blue from "../assets/blue.png";
+// import blue from "../assets/blue.png";
 import green from "../assets/green.png";
 import orange from "../assets/orange.png";
 import pink from "../assets/pink.png";
@@ -28,6 +28,56 @@ import benefit2 from "../assets/benefit2.png";
 import benefit3 from "../assets/benefit3.png";
 import benefit4 from "../assets/benefit4.png";
 import Header from "../components/Header";
+
+import { motion } from "motion/react";
+
+const heroVariants = {
+  start: { opacity: 0 },
+  end: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2, // Faster and seamless stagger
+      staggerDirection: 1, // Children animate sequentially forward
+      delayChildren: 0.1, // Reduced for smoother flow
+      // Ensures the parent animates before children
+    },
+  },
+};
+
+const heroChildVariants = {
+  start: {
+    y: 100,
+    opacity: 0,
+    filter: "blur(15px)",
+    scale: 0.9, // Adds a slight zoom-out effect for modern visuals
+  },
+  end: {
+    y: 0,
+    opacity: 1,
+    filter: "blur(0px)",
+    scale: 1,
+    transition: {
+      y: {
+        type: "spring",
+        stiffness: 100,
+        damping: 15,
+      },
+      opacity: {
+        duration: 0.6,
+        ease: [0.42, 0, 0.58, 1],
+      },
+      filter: {
+        duration: 0.4,
+        ease: [0.42, 0, 0.58, 1],
+      },
+      scale: {
+        type: "spring",
+        stiffness: 120,
+        damping: 10,
+      },
+    },
+  },
+};
 
 const Home = () => {
   const features = [
@@ -149,17 +199,33 @@ const Home = () => {
         <img src={vector} className="vector" />
         <img src={clock} className="clock" />
 
-        <div className="content">
-          <h1 className="heading-collab">
+        <motion.div
+          variants={heroVariants}
+          initial="start"
+          animate="end"
+          className="content"
+        >
+          <motion.h1 variants={heroChildVariants} className="heading-collab">
             A Collaborative Lesson Planner that you Need
-          </h1>
-          <p className="unite-para">
-            Unite with Educators to Collaboratively Design Engaging and<br></br>{" "}
+          </motion.h1>
+          <motion.p variants={heroChildVariants} className="unite-para">
+            Unite with Educators to Collaboratively Design Engaging and
+            <br />
             Impactful Lesson Plans That Inspire Future Generations!
-          </p>
-          <img className="shape" src={shape} />
-          <button className="freetrail-button">Start Free Trial</button>
-        </div>
+          </motion.p>
+          <motion.button
+            variants={heroChildVariants}
+            className="freetrail-button"
+          >
+            Start Free Trial
+          </motion.button>
+          <motion.img
+            variants={heroChildVariants}
+            className="shape"
+            src={shape}
+          />
+        </motion.div>
+
         <img className="mac" src={mac} />
         <img className="vector2" src={vector2} />
 
@@ -168,8 +234,9 @@ const Home = () => {
         <img className="vector1" src={vector1} />
       </section>
 
-      <div class="stats-container">
+      <div className="stats-container">
         <div>
+          {/* <Counter start={0} end={1000} duration={1400} isVisible={isVisible} /> */}
           <h1>1k+</h1>
           <p>Active User</p>
         </div>
@@ -186,7 +253,7 @@ const Home = () => {
       <section id="features">
         <div className="features-container">
           <h1>Some Excellent Features For You</h1>
-          <img class="shape-features" src={shapefea}></img>
+          <img className="shape-features" src={shapefea}></img>
           <p className="power-feature">
             Powerful features designed to enhance collaboration, streamline
             planning, and simplify <br></br>resource sharing. Elevate your

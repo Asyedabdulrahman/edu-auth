@@ -10,6 +10,7 @@ import Page from "./dashboard/Page";
 import SignInPage from "./auth/SignInPage";
 import SignUpPage from "./auth/SignUpPage";
 import LessonPlan from "./components/LessonPlan";
+import Splinee from "./dashboard/Spline";
 
 const AppComponent = () => {
   const location = useLocation();
@@ -22,6 +23,8 @@ const AppComponent = () => {
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/dashboard" element={<Page />} />
         <Route path="/lessonPlan" element={<LessonPlan />} />
+        <Route path="/spline" element={<Splinee />} />
+        {/* remove splinee code before pushing, i just tested how its works. */}
       </Routes>
 
       {location.pathname !== "/lessonPlan" && <Footer />}

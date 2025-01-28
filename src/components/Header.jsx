@@ -55,20 +55,16 @@ const Header = () => {
           <UserButton redirectUrl="/" />
         ) : (
           <>
-            <Link to="/login" style={{ textDecoration: "none" }}>
+            <Link to="/" style={{ textDecoration: "none" }}>
               <p
                 className="login"
-                // onClick={openSignIn}
                 style={{ marginBottom: "0", cursor: "pointer" }}
               >
                 Login
               </p>
             </Link>
-            <Link to="/signup" style={{ textDecoration: "none" }}>
-              <div
-                className="bg-[#ff553e] text-white rounded-3xl px-2.5 py-1.5 cursor-pointer border-none font-normal flex flex-col items-center justify-center"
-                // onClick={openSignUp}
-              >
+            <Link to="/dashboard" style={{ textDecoration: "none" }}>
+              <div className="bg-[#ff553e] text-white rounded-3xl px-2.5 py-1.5 cursor-pointer border-none font-normal flex flex-col items-center justify-center">
                 Sign Up
               </div>
             </Link>
