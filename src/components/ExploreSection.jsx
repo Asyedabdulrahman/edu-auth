@@ -3,6 +3,10 @@ import { useNavigate } from "react-router-dom";
 const ExploreSection = () => {
   const navigate = useNavigate();
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, left: 0 });
+  };
+
   const exploreItems = [
     {
       title: "Check Your\nLesson Plans", // Two lines
@@ -24,11 +28,6 @@ const ExploreSection = () => {
     },
   ];
 
-  // const checknavigate = () => {
-  //   console.log("navigate btn working fine");
-  //   navigate("/lessonPlan");
-  // };
-
   return (
     <div className="p-4 mt-6 bg-white rounded-lg shadow">
       {/* Header */}
@@ -44,8 +43,8 @@ const ExploreSection = () => {
             key={index}
             className={`flex items-center justify-between p-4 rounded-lg bg-gradient-to-r ${item.colorFrom} ${item.colorTo} text-white shadow-md cursor-pointer transition hover:scale-105`}
             onClick={() => {
-              console.log("onclick");
               navigate("/lessonPlan");
+              scrollToTop();
             }}
           >
             <h3 className="text-sm font-semibold whitespace-pre-line">
