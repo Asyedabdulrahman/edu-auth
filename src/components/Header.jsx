@@ -55,7 +55,7 @@ const Header = () => {
           <UserButton redirectUrl="/" />
         ) : (
           <>
-            <Link to="/" style={{ textDecoration: "none" }}>
+            <Link to="/dashboard" style={{ textDecoration: "none" }}>
               <p
                 className="login"
                 style={{ marginBottom: "0", cursor: "pointer" }}
