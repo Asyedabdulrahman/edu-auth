@@ -18,7 +18,7 @@ const ExploreSection = () => {
       title: "View Your\nTimetable", // Two lines
       colorFrom: "from-red-400",
       colorTo: "to-red-300",
-      navigateto: "/lessonPlan",
+      navigateto: "/timeTable",
     },
     {
       title: "Explore the\nCurriculum", // Two lines
@@ -43,7 +43,7 @@ const ExploreSection = () => {
             key={index}
             className={`flex items-center justify-between p-4 rounded-lg bg-gradient-to-r ${item.colorFrom} ${item.colorTo} text-white shadow-md cursor-pointer transition hover:scale-105`}
             onClick={() => {
-              navigate("/lessonPlan");
+              navigate(item.navigateto);
               scrollToTop();
             }}
           >
