@@ -11,6 +11,7 @@ import SignInPage from "./auth/SignInPage";
 import SignUpPage from "./auth/SignUpPage";
 import LessonPlan from "./components/LessonPlan";
 import TimeTable from "./components/TimeTable";
+import Curriculum from "./components/Curriculum";
 
 const AppComponent = () => {
   const location = useLocation();
@@ -24,11 +25,13 @@ const AppComponent = () => {
         <Route path="/dashboard" element={<Page />} />
         <Route path="/lessonPlan" element={<LessonPlan />} />
         <Route path="/timeTable" element={<TimeTable />} />
+        <Route path="/curriculum" element={<Curriculum />} />
       </Routes>
 
       {!(
         location.pathname.includes("lessonPlan") ||
-        location.pathname.includes("timeTable")
+        location.pathname.includes("timeTable") ||
+        location.pathname.includes("curriculum")
       ) && <Footer />}
     </>
   );

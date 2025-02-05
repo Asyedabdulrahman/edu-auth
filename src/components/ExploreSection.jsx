@@ -24,7 +24,7 @@ const ExploreSection = () => {
       title: "Explore the\nCurriculum", // Two lines
       colorFrom: "from-red-400",
       colorTo: "to-red-300",
-      navigateto: "/lessonPlan",
+      navigateto: "/curriculum",
     },
   ];
 
